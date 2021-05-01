@@ -1,14 +1,21 @@
-// program to generate fibonacci series up to n terms
-
-// take input from the user
-const number = parseInt(prompt('Enter the number of terms: '));
-let n1 = 0, n2 = 1, nextTerm;
-
-console.log('Fibonacci Series:');
-
-for (let i = 1; i <= number; i++) {
-    console.log(n1);
-    nextTerm = n1 + n2;
-    n1 = n2;
-    n2 = nextTerm;
+function fibonacci_number(number){
+    if(number == 0){
+        return number;
+    }
+    else if (number == 1){
+        return number;
+    }
+    else{
+        var sequence = fibonacci_number(number-2)+fibonacci_number(number-1);
+    }
+    return sequence;
 }
+
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
+readline.question('Enter a positional number of the fibonacci sequence ', number => {
+    console.log(`The position ${number} of the fibonacci sequence is ${fibonacci_number(number)}`);
+    readline.close();
+});
